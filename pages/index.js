@@ -82,7 +82,7 @@ export default function Home() {
       risk: "Medium",
       returns: "7% - 10% (varies by fund type)",
       link: "/etfs"
-    },
+    }
   ]
 
   return (
@@ -94,9 +94,21 @@ export default function Home() {
           </h1>
           <nav>
             <ul className="flex space-x-4">
-              <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-indigo-600 transition-colors">Contact</a></li>
+              <li>
+                <Link href="/" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-600 hover:text-indigo-600 transition-colors">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -129,7 +141,7 @@ export default function Home() {
               <div className="px-6 py-6 flex-grow">
                 <asset.icon className="h-12 w-12 text-indigo-600 mb-4" />
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{asset.name}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">{asset.description}</p>
+                <p className="text-gray-600 mb-4">{asset.description}</p>
                 <div className="mb-4">
                   <div className="text-sm text-gray-600 mb-1">Potential Returns:</div>
                   <div className="text-lg font-semibold text-indigo-600">{asset.returns}</div>
@@ -137,8 +149,11 @@ export default function Home() {
                 <RiskMeter risk={asset.risk} />
               </div>
               <div className="px-6 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 mt-auto">
-                <Link href={asset.link} className="text-white font-medium flex items-center justify-center hover:underline">
-                  Explore {asset.name}
+                <Link 
+                  href={asset.link} 
+                  className="w-full text-white font-medium flex items-center justify-center hover:underline"
+                >
+                  <span>Explore {asset.name}</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
